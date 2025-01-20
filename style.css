@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1d2026;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+button {
+    padding: 10px 20px;
+    background: #00986f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.toggleMessage {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Fade-in animation with 1-second duration */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.nameMessage {
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    margin-top: 40px; /* Gap between Show Name and Hey */
+    display: none;
+    opacity: 0;
+    animation: fadeInName 1s forwards;
+}
+
+@keyframes fadeInName {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#btn2, #btnNext {
+    display: none;  /* Initially hidden */
+    opacity: 0;
+    transform: translateY(100px); /* Start offscreen */
+    animation: slideUp 1s forwards; /* Slide up after 1 second */
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background image - make sure it covers the entire screen without zooming */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Images/WhatsApp.jpg') no-repeat center center;
+    background-size: cover;  /* Ensure the image fully covers the screen without zooming */
+    opacity: 0.3;  /* Faded effect */
+    z-index: 1;  /* Ensure the background is behind the content */
+}
+
+/* "Hurrah" effect */
+.hurrahMessage {
+    font-size: 30px;
+    color: white; /* Normal text styling */
+    font-weight: bold;
+    display: none;
+    opacity: 0;
+    animation: fadeInHurrah 1s 0.5s forwards; /* Show after all previous messages disappear */
+}
+
+@keyframes fadeInHurrah {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
